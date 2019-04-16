@@ -3,7 +3,7 @@ import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({
 	description: 'A plugin that replaces HomeScreen to show Apps just like any mobile OS',
-	key: '@bluebase/plugin-launcher',
+	key: 'plugin-launcher',
 	name: 'BlueBase App Launcher',
 	version: '1.0.0',
 

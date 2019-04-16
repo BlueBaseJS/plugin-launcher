@@ -1,7 +1,7 @@
 import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
-import { SafeAreaView, ScrollView } from 'react-native';
 import { AppGrid } from '../AppGrid';
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { View } from '@bluebase/components';
 import { Wallpaper } from '../Wallpaper';
 
@@ -31,11 +31,9 @@ export class LauncherScreen extends React.PureComponent<{}, { size: number }> {
 				landscapeProps={BB.Configs.getValue('plugin.launcher.wallpaper.landscape')}
 				defaultProps={BB.Configs.getValue('plugin.launcher.wallpaper')}
 			>
-				<SafeAreaView>
-					<ScrollView>
-						<AppGrid plugins={plugins} />
-					</ScrollView>
-				</SafeAreaView>
+				<ScrollView style={{ flex: 1 }}>
+					<AppGrid plugins={plugins} />
+				</ScrollView>
 			</Wallpaper>
 		);
 	}

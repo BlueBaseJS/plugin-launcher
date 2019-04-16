@@ -3,7 +3,7 @@ import { Text } from '@bluebase/components';
 import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({
-	key: 'App 1',
+	key: 'app-1',
 	name: 'D App 1',
 
 	icon: {

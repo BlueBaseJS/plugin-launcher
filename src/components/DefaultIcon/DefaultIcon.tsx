@@ -15,7 +15,7 @@ export interface DefaultIconProps {
 
 export const DefaultIcon = ({ size, styles }: DefaultIconProps) => (
 	<View style={[styles && styles.root, { height: size, width: size, }]}>
-		<DynamicIcon type="icon" name="build" color={styles && styles.iconColor.color} size={size/2} />
+		<DynamicIcon type="icon" name="build" color={styles && styles.iconColor && styles.iconColor.color} size={size/2} />
 	</View>
 );
 
