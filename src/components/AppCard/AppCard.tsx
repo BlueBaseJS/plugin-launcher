@@ -11,10 +11,10 @@ export interface AppCardProps {
 
 export const AppCard = ({ plugin, size }: AppCardProps) => (
 	<NavigationActions>
-		{({ push }) => {
+		{({ navigate }) => {
 
 			const path = plugin.path;
-			const onPress = path ? (() => push({ path })) : undefined;
+			const onPress = path ? (() => navigate({ path })) : undefined;
 
 			return (
 				<TouchableItem onPress={onPress}>

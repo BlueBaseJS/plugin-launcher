@@ -4,7 +4,7 @@ import React from 'react';
 import { Theme } from '@bluebase/core';
 
 export interface DefaultIconStyles {
-	iconColor: TextStyle['color'],
+	iconColor: { color: TextStyle['color'] },
 	root: StyleProp<ViewStyle>
 }
 
@@ -19,7 +19,7 @@ export const DefaultIcon = ({ size, styles: _styles }: DefaultIconProps) => {
 
 	return (
 		<View style={[styles.root, { height: size, width: size, }]}>
-			<DynamicIcon type="icon" name="build" color={styles.iconColor} size={size/2} />
+			<DynamicIcon type="icon" name="build" color={styles.iconColor.color} size={size/2} />
 		</View>
 	);
 };
