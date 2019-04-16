@@ -152,6 +152,7 @@
   },
   "peerDependencies": {
     "@bluebase/core": "^4.*",
+    "@bluebase/plugin-responsive-grid": "*",
     "react": "^16.*"
   },
   "prettier": {
