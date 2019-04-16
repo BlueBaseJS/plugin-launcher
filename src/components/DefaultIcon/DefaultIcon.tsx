@@ -13,11 +13,16 @@ export interface DefaultIconProps {
 	styles?: Partial<DefaultIconStyles>
 }
 
-export const DefaultIcon = ({ size, styles }: DefaultIconProps) => (
-	<View style={[styles && styles.root, { height: size, width: size, }]}>
-		<DynamicIcon type="icon" name="build" color={styles && styles.iconColor && styles.iconColor.color} size={size/2} />
-	</View>
-);
+export const DefaultIcon = ({ size, styles: _styles }: DefaultIconProps) => {
+
+	const styles = _styles as DefaultIconStyles;
+
+	return (
+		<View style={[styles.root, { height: size, width: size, }]}>
+			<DynamicIcon type="icon" name="build" color={styles.iconColor} size={size/2} />
+		</View>
+	);
+};
 
 DefaultIcon.defaultStyles = (theme: Theme) => ({
 	iconColor: {
