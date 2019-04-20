@@ -1,19 +1,36 @@
-import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
+import { BlueBase, BlueBaseContext, getComponent, Theme } from '@bluebase/core';
 import { AppGrid } from '../AppGrid';
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { View } from '@bluebase/components';
 import { Wallpaper } from '../Wallpaper';
 
 const EmptyState = getComponent('LauncherEmptyState', 'EmptyState');
 
-export class LauncherScreen extends React.PureComponent<{}, { size: number }> {
+export interface LauncherScreenStyles {
+	root: StyleProp<ViewStyle>;
+}
+
+export interface LauncherScreenProps {
+	styles: LauncherScreenStyles;
+}
+
+export class LauncherScreen extends React.PureComponent<LauncherScreenProps, { size: number }> {
 
 	static contextType = BlueBaseContext;
+
+	static defaultStyles = (theme: Theme) => ({
+		root: {
+			flex: 1,
+			paddingHorizontal: theme.spacing.unit * 2,
+		}
+	})
 
 	render() {
 
 		const BB: BlueBase = this.context;
+
+		const { styles } = this.props;
 
 		const plugins = Array.from(BB.Plugins.values()).filter(plugin => !!plugin.path);
 
@@ -31,7 +48,7 @@ export class LauncherScreen extends React.PureComponent<{}, { size: number }> {
 				landscapeProps={BB.Configs.getValue('plugin.launcher.wallpaper.landscape')}
 				defaultProps={BB.Configs.getValue('plugin.launcher.wallpaper')}
 			>
-				<ScrollView style={{ flex: 1 }}>
+				<ScrollView style={styles.root}>
 					<AppGrid plugins={plugins} />
 				</ScrollView>
 			</Wallpaper>
