@@ -11,9 +11,11 @@ export default createPlugin({
 		type: 'image',
 	},
 
+	indexRoute: 'App2',
+
 	routes: {
 		name: 'App2',
 		path: '',
-		screen: () => (<Text>App2</Text>),
-	}
+		screen: () => <Text>App2</Text>,
+	},
 });

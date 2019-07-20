@@ -18,9 +18,11 @@ export default createPlugin({
 		type: 'component',
 	},
 
+	indexRoute: 'App3',
+
 	routes: {
 		name: 'App3',
 		path: '',
-		screen: () => (<Text>App3</Text>),
-	}
+		screen: () => <Text>App3</Text>,
+	},
 });

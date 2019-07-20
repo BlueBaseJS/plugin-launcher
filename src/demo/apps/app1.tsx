@@ -11,9 +11,11 @@ export default createPlugin({
 		type: 'icon',
 	},
 
+	indexRoute: 'App1',
+
 	routes: {
 		name: 'App1',
 		path: '',
-		screen: () => (<Text>App1</Text>),
-	}
+		screen: () => <Text>App1</Text>,
+	},
 });
