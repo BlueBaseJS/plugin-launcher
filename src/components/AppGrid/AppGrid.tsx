@@ -1,8 +1,8 @@
 import { Container, Row } from '@bluebase/components';
-import { Plugin, PluginRegistryItem } from '@bluebase/core';
 
 import { AppCard } from '../AppCard';
 import { Column } from '../Column';
+import { Plugin } from '@bluebase/core';
 import React from 'react';
 
 export interface AppGridProps {

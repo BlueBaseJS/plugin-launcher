@@ -1,5 +1,5 @@
 import { Body2, NavigationActions, PluginIcon, TouchableItem, View } from '@bluebase/components';
-import { Plugin, PluginRegistryItem, getComponent } from '@bluebase/core';
+import { Plugin, getComponent } from '@bluebase/core';
 
 import React from 'react';
 
