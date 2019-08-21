@@ -1,6 +1,7 @@
 import { BlueBaseApp, createPlugin, getComponent } from '@bluebase/core';
 
 import BluebaseResponsiveGrid from "@bluebase/plugin-responsive-grid"
+import { Column } from '../../Column';
 import Plugin from '../../../index';
 import React from 'react';
 import { mount } from 'enzyme';
@@ -28,16 +29,17 @@ export const samplePlugin = createPlugin({
 
 
 
-// export const SitesIconPlugin = createPlugin({
-// 	key: 'sites',
-// 	name: 'Sitesplugin',
-// 	version: '1.0.0',
-// 	icon: {
-// 		component: 'SitesAppIcon',
-// 		type: 'icon',
-// 	},
 
-// });
+export const samplesPlugin = createPlugin({
+	key: 'thingss',
+	name: 'thingsplugins',
+	version: '1.0.0',
+	indexRoute: 'things'
+
+
+});
+
+
 
 
 describe('LauncherScreen', () => {
@@ -49,7 +51,6 @@ describe('LauncherScreen', () => {
 				configs={{
 					portraitProps: {
 						resizeMode: 'contain',
-						// source: require('dummy'),
 						style: { flex: 1, },
 					},
 				}}
@@ -60,30 +61,45 @@ describe('LauncherScreen', () => {
 		);
 
 		await waitForElement(wrapper, LauncherScreen);
-		// expect(wrapper).toMatchSnapshot();
 		expect(wrapper.find('EmptyState')).toHaveLength(1);
-
-		// expect(
-		// 	(wrapper as any)
-		// 		.find('Wallpaper')
-		// 		.last()
-		// 		.prop('portraitProps')
-		// ).toContain('resizeMode');
-
-
 
 	});
 	it('should return', async () => {
+		const Function: any = () => 'View';
+
+		const wrappers = mount(
+			<BlueBaseApp
+
+				plugins={[BluebaseResponsiveGrid, samplesPlugin, samplePlugin, Plugin]}>
+				<Column>
+					{(_size: any) => {
+						return (<Function />);
+					}}
+				</Column>
+			</BlueBaseApp>
+		);
+
+
+
+		await waitForElement(wrappers, Column);
+
+		const instance: any = wrappers
+			.find('ColumnComponent')
+			.last()
+			.instance();
+		instance.onLayout({ nativeEvent: { layout: { width: 20 } } });
+
+
+		wrappers.update();
 		const wrapper = mount(
 			<BlueBaseApp
 				configs={{
 					portraitProps: {
 						resizeMode: 'contain',
-						// source: require('dummy'),
 						style: { flex: 1, },
 					},
 				}}
-				plugins={[BluebaseResponsiveGrid, samplePlugin, Plugin]}
+				plugins={[BluebaseResponsiveGrid, samplesPlugin, samplePlugin, Plugin]}
 			>
 				<LauncherScreen />
 			</BlueBaseApp>
@@ -91,13 +107,7 @@ describe('LauncherScreen', () => {
 
 		await waitForElement(wrapper, LauncherScreen);
 
-		expect(
-			(wrapper as any)
-				.find('Wallpaper')
-				.last()
-				.prop('portraitProps')
-		).toContain('resizeMode');
-
+		expect(wrapper.find('ScrollView')).toHaveLength(1);
 
 
 	});

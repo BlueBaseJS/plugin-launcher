@@ -14,7 +14,7 @@ export const AppGrid = ({ plugins }: AppGridProps) => (
 		<Row>
 			{plugins.map(plugin => (
 				<Column key={plugin.key} xl={1} lg={1.5} md={2} sm={3} xs={3}>
-					{size => <AppCard plugin={plugin} size={size} />}
+					{(size) => <AppCard plugin={plugin} size={size} />}
 				</Column>
 			))}
 		</Row>

@@ -1,4 +1,5 @@
 import { Column as Col, ColumnProps as ColProps } from '@bluebase/components';
+
 import { BlueBaseContext } from '@bluebase/core';
 import React from 'react';
 
@@ -6,7 +7,7 @@ export interface ColumnProps extends ColProps {
 	children: (size: number) => React.ReactNode
 }
 
-export class Column extends React.PureComponent<ColumnProps, { size: number }> {
+export class ColumnComponent extends React.PureComponent<ColumnProps, { size: number }> {
 
 	static contextType = BlueBaseContext;
 	readonly state = {
@@ -16,11 +17,11 @@ export class Column extends React.PureComponent<ColumnProps, { size: number }> {
 	constructor(props: ColumnProps) {
 		super(props);
 
-    // This binding is necessary to make `this` work in the callback
+		// This binding is necessary to make `this` work in the callback
 		this.onLayout = this.onLayout.bind(this);
 	}
 
-	onLayout (event: any) {
+	onLayout(event: { nativeEvent: { layout: { width: string } } }) {
 
 		const width = parseFloat(event.nativeEvent.layout.width);
 
@@ -35,9 +36,10 @@ export class Column extends React.PureComponent<ColumnProps, { size: number }> {
 		const size = this.state.size;
 
 		return (
-			<Col onLayout={this.onLayout} {...rest}>
-			{size === 0 ? null : children(size)}
+			<Col onLayout={this.onLayout as any} {...rest}>
+				{children(size)}
 			</Col>
 		);
 	}
 }
+export { ColumnComponent as Column };

@@ -17,7 +17,7 @@
   },
   "size-limit": [
     {
-      "limit": "11 KB",
+      "limit": "12 KB",
       "webpack": false,
       "path": "dist/**/*.js"
     }
@@ -142,7 +142,7 @@
     "size-limit": "^0.21.1",
     "trash-cli": "^3.0.0",
     "ts-jest": "^24.0.0",
-    "tslint": "^5.13.1",
+    "tslint": "5.11.0",
     "typedoc": "^0.14.2",
     "typescript": "3.5.3"
   },

@@ -1,6 +1,6 @@
 // jest.mock("Dimensions");
 
-import { BlueBaseApp, createPlugin } from '@bluebase/core';
+import { BlueBase, BlueBaseApp, createPlugin } from '@bluebase/core';
 
 import BluebasePluginResponsiveGrid from "@bluebase/plugin-responsive-grid"
 import Plugin from '../../../index';
@@ -33,7 +33,16 @@ export const SitesIconPlugin: any = createPlugin({
 
 });
 
-describe('AppGrid', () => {
+// jest.mock('@bluebase/components', () => {
+//     return {
+//         OrientationObserver: (Component: any) => {
+
+
+//             return <Component isLandscape={true} />;
+//         }
+//     }
+// });
+describe('WallPaper', () => {
 
 
     it('should  return WallPaper', async () => {
@@ -50,26 +59,49 @@ describe('AppGrid', () => {
 
             </BlueBaseApp>
         );
-
-
-
         await waitForElement(wrapper, 'OrientationObserver');
-
-        const instance: any = wrapper
-            .find('Column')
-            .first()
-            .instance();
-        instance.onLayout({ nativeEvent: { layout: { width: 20 } } });
-
         expect(
             (wrapper as any)
-                .find('AppCard')
+                .find('ImageBackground')
                 .first()
-                .prop('size')
-        ).toBe(20);
+                .prop('children')
+        ).toBeDefined();
 
     });
 
+    it('should  return WallPaper', async () => {
 
+        const isLandscape = true;
+        const OrientationObserver = ({ children }: any) => children({ isLandscape });
+
+        const Component: any = () => 'View';
+        const wrapper = mount(
+            <BlueBaseApp
+                filters={{
+                    'bluebase.boot.end': async (bootOpts: any, _ctx: any, BB: BlueBase) => {
+                        // Adding mocked NavigationActions
+                        await BB.Components.register('OrientationObserver', OrientationObserver);
+                        return bootOpts;
+                    }
+                }}
+
+                plugins={[BluebasePluginResponsiveGrid, ThingsPlugin, Plugin, SitesIconPlugin]}>
+                <Wallpaper defaultProps={{ source: require('../images/logo.png') }} >
+                    {() => {
+                        return (<Component />);
+                    }}
+                </Wallpaper>
+
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'OrientationObserver');
+        expect(
+            (wrapper as any)
+                .find('ImageBackground')
+                .first()
+                .prop('children')
+        ).toBeDefined();
+
+    });
 
 });
