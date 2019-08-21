@@ -49,7 +49,7 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 
 		if (!plugins || plugins.length === 0) {
 			return (
-				<View style={{ flex: 1 }}>
+				<View testID="view" style={{ flex: 1 }}>
 					<EmptyState />
 				</View>
 			);
