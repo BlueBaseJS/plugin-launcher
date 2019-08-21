@@ -17,5 +17,5 @@ export default createPlugin({
 		'plugin.launcher.wallpaper': {},
 		'plugin.launcher.wallpaper.landscape': {},
 		'plugin.launcher.wallpaper.portrait': {},
-	}
+	},
 });
