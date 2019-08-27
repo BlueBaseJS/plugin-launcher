@@ -13,7 +13,7 @@ export interface LauncherScreenStyles {
 }
 
 export interface LauncherScreenProps {
-	styles: LauncherScreenStyles;
+	styles?: LauncherScreenStyles;
 }
 
 export interface LauncherScreenState {
@@ -32,7 +32,7 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 			flex: 1,
 			paddingHorizontal: theme.spacing.unit * 2,
 		},
-	})
+	});
 
 	async componentWillMount() {
 		const BB: BlueBase = this.context;
@@ -61,7 +61,7 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 				landscapeProps={BB.Configs.getValue('plugin.launcher.wallpaper.landscape')}
 				defaultProps={BB.Configs.getValue('plugin.launcher.wallpaper')}
 			>
-				<ScrollView style={styles.root}>
+				<ScrollView style={styles!.root}>
 					<AppGrid plugins={plugins} />
 				</ScrollView>
 			</Wallpaper>

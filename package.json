@@ -42,7 +42,7 @@
     "test:md": "remark . -f",
     "commit": "git-cz",
     "report-coverage": "codecov && cat ./coverage/lcov.info | codacy-coverage",
-    "doc": "run-s doc:html && run-s doc:build-storybook && opn docs/index.html",
+    "doc": "run-s doc:html && run-s doc:build-storybook",
     "doc:html": "typedoc src/ --target ES6 --mode file --out docs && cp -r assets docs",
     "doc:json": "typedoc src/ --target ES6 --mode file --json docs/typedoc.json && cp -r assets docs",
     "doc:build-storybook": "build-storybook -c ./bluebase/storybook/configs -o docs/storybook",
