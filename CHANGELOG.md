@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.0.0...v1.0.1) (2019-08-28)
+
+### Bug Fixes
+
+-   Fixed semantic release issues ([b430b04](https://github.com/BlueBaseJS/plugin-launcher/commit/b430b04))
+
 # 1.0.0 (2019-08-27)
 
 ### Bug Fixes
