@@ -9,19 +9,58 @@ cache:
 #   email: false
 node_js:
   - lts/*
-script:
-  - yarn run test
-  - yarn run build
-  - yarn run size
+
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
   - npm install -g greenkeeper-lockfile@1
+
 before_script:
   - greenkeeper-lockfile-update
+
 after_script:
   - greenkeeper-lockfile-upload
+
 after_success:
-  - test $TRAVIS_BRANCH = "master" && yarn run doc
-  - npx semantic-release
   - yarn run report-coverage
+
+jobs:
+  include:
+    - stage: unit tests
+      name: 'Unit Tests'
+      script: yarn test:only
+
+    - stage: tslint
+      name: 'Lint Tests'
+      script: yarn test:lint
+
+    - stage: prettier
+      name: 'Prettier Tests'
+      script: yarn test:prettier
+
+    - stage: markdown
+      name: 'Lint Markdown Files'
+      script: yarn test:md
+
+    - stage: build
+      name: 'Generate Build'
+      script: yarn test:md
+
+    - stage: size
+      name: 'Bundle Size Test'
+      script: yarn size
+
+    - stage: docs
+      name: 'Generate Documentation'
+      if: branch = master
+      script: yarn doc
+
+    - stage: deploy to master
+      if: branch = master
+      script: skip
+      deploy:
+        # deploy master to production
+        - provider: script
+          script: npx semantic-release
+          on:
+            branch: master
