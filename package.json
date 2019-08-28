@@ -97,6 +97,7 @@
     "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@qiwi/semantic-release-gh-pages-plugin": "^1.10.5",
     "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/exec": "^3.3.6",
     "@semantic-release/git": "^7.0.16",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
