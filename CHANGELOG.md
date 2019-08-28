@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.0.1...v1.1.0) (2019-08-28)
+
+### Features
+
+-   Plugin now uses dynamic version ([bab8990](https://github.com/BlueBaseJS/plugin-launcher/commit/bab8990))
+
 ## [1.0.1](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.0.0...v1.0.1) (2019-08-28)
 
 ### Bug Fixes
