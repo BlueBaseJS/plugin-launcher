@@ -8,6 +8,7 @@ import deepmerge from 'deepmerge';
  * We keep all the universal (cross platform) configs in
  * the common folder, and extend them here.
  */
+// Test Comment
 const bootOptions: Partial<BootOptions> = {
 
 	plugins: [
