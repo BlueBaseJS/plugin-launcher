@@ -22,6 +22,7 @@
       "path": "dist/**/*.js"
     }
   ],
+
   "scripts": {
     "start": "yarn run storybook",
     "clean": "rimraf coverage dist tmp",
