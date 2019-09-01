@@ -17,12 +17,11 @@
   },
   "size-limit": [
     {
-      "limit": "12 KB",
+      "limit": "20 KB",
       "webpack": false,
       "path": "dist/**/*.js"
     }
   ],
-
   "scripts": {
     "start": "yarn run storybook",
     "clean": "rimraf coverage dist tmp",
@@ -32,7 +31,7 @@
     "info": "npm-scripts-info",
     "build": "run-s clean && run-p build:* && cp -r ./dist/src/* ./dist && rm -r ./dist/src && yarn run size",
     "build:main": "tsc -p tsconfig.json && babel ./src --out-dir dist --ignore \"**/__tests__\",\"**/__stories__\" --extensions \".ts,.tsx,.js,.jsx\"",
-    "build:web":"yarn add @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && mkdir public && cp -r ./build/web/client/* ./public",
+    "build:web": "yarn add @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && mkdir public && cp -r ./build/web/client/* ./public",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "tslint --fix --project .",
@@ -78,6 +77,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "@bluebase/cli": "^0.0.15",
     "@bluebase/components": "^5.15.3",
     "deepmerge": "^4.0.0",
     "expo": "^32.0.0",
