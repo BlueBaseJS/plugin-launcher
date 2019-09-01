@@ -32,7 +32,7 @@
     "info": "npm-scripts-info",
     "build": "run-s clean && run-p build:* && cp -r ./dist/src/* ./dist && rm -r ./dist/src && yarn run size",
     "build:main": "tsc -p tsconfig.json && babel ./src --out-dir dist --ignore \"**/__tests__\",\"**/__stories__\" --extensions \".ts,.tsx,.js,.jsx\"",
-    "build:web":"npm install @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && mkdir public && cp -r ./build/web/client/* ./public",
+    "build:web":"yarn add @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && mkdir public && cp -r ./build/web/client/* ./public",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "tslint --fix --project .",
