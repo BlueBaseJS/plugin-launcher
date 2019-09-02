@@ -1,4 +1,7 @@
 language: node_js
+env:
+  global:
+  - NW_TOKEN: "${NOW_TOKEN}"
 cache:
   yarn: true
   directories:
@@ -12,11 +15,12 @@ node_js:
 script:
   - yarn run test
   - yarn run build
-  - yarn add @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && cd build/web/client/ && now
+  - bluebase web:build --static
   - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-web
   - npm install -g greenkeeper-lockfile@1
   - npm install -g now
 before_script:
@@ -24,6 +28,7 @@ before_script:
 after_script:
   - greenkeeper-lockfile-upload
 after_success:
+  - cd build/web/client/ && now --token=${NW_TOKEN}
   - test $TRAVIS_BRANCH = "master" && yarn run doc
   - npx semantic-release
   - yarn run report-coverage
