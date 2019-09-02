@@ -12,6 +12,7 @@ node_js:
 script:
   - yarn run test
   - yarn run build
+  - yarn add @bluebase/cli && bluebase plugins:add @bluebase/cli-web && bluebase web:build --static && cd /build/web/client/ && now
   - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
