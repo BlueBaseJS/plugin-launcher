@@ -33,10 +33,7 @@ after_script:
 after_success:
   - cd build/web/client/
   - URL="$(now --token=${NW_TOKEN})"
-  - echo "${TRAVIS_REPO_SLUG}"
-  - echo "${TRAVIS_PULL_REQUEST}"
-  - echo "${GITHUB_TOKEN}"
-  - echo "${URL}"
+  - cd ../../../
   - chmod +x travis_success.sh
   - ./travis_success.sh
   - test $TRAVIS_BRANCH = "master" && yarn run doc
