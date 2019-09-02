@@ -14,13 +14,13 @@ node_js:
   - lts/*
 script:
   - yarn run test
-  - yarn run build
-  - bluebase web:build --static
-  - yarn run size
+  # - yarn run build
+  # - bluebase web:build --static
+  # - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || yarn global add npm@latest' # skipped when using node 9
-  - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-web
+  # - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-web
   - yarn global add greenkeeper-lockfile@1
   - yarn global add now
 before_script:
@@ -29,8 +29,8 @@ after_script:
   - greenkeeper-lockfile-upload
 after_success:
   - ./travis_success.sh
-  - cd build/web/client/
-  - URL="$(now --token=${NW_TOKEN})"
+  # - cd build/web/client/
+  # - URL="$(now --token=${NW_TOKEN})"
   - test $TRAVIS_BRANCH = "master" && yarn run doc
   - npx semantic-release
   - yarn run report-coverage
