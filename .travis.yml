@@ -2,6 +2,9 @@ language: node_js
 env:
   global:
   - NW_TOKEN: "${NOW_TOKEN}"
+  - GITHUB_TOKEN: "${GITHUB_TOKEN}"
+  - TRAVIS_REPO_SLUG: "${TRAVIS_REPO_SLUG}"
+  - TRAVIS_PULL_REQUEST: "${TRAVIS_PULL_REQUEST}"
 cache:
   yarn: true
   directories:
@@ -13,7 +16,7 @@ cache:
 node_js:
   - lts/*
 script:
-  - yarn run test
+  # - yarn run test
   # - yarn run build
   # - bluebase web:build --static
   # - yarn run size
