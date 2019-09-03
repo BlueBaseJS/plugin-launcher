@@ -35,11 +35,12 @@ after_script:
 
 after_success:
   - cd build/web/client/
+  - URL="$(now --token=${NW_TOKEN})"
+  - cd ../../../
   # - "curl -H \"Authorization: token ${GITHUB_TOKEN}\" -X POST --data-urlencode \"{\"body\": \"Build Path: ${URL}\"}\" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments"
   # - "curl -H \"Authorization: token ${GITHUB_TOKEN}\" -X POST -d \"{\"body\": \"Build Path: ${URL}\"}\" \"https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments\""
   - chmod +x travis_success.sh
-  - ../../../travis_success.sh
-  - cd ../../../
+  - ./travis_success.sh
   - test $TRAVIS_BRANCH = "master" && yarn run doc
   - npx semantic-release
   - yarn run report-coverage
