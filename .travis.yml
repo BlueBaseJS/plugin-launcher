@@ -33,9 +33,7 @@ after_script:
   - greenkeeper-lockfile-upload
 
 after_success:
-  - cd build/web/client/
-  - URL="$(now --token=${NW_TOKEN})"
-  - cd ../../../
+  - URL="$(now ./build/web/client/ --token=${NW_TOKEN})"
   - chmod +x travis_success.sh
   - ./travis_success.sh
   - test $TRAVIS_BRANCH = "master" && yarn run doc
