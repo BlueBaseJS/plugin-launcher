@@ -20,14 +20,15 @@ node_js:
   - lts/*
 script:
   # - yarn run test
-  - yarn run build
+  # - yarn run build
   # - bluebase web:build --static
-  - yarn run size
+  # - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || yarn global add npm@latest' # skipped when using node 9
   # - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-web
   - yarn global add greenkeeper-lockfile@1
+  - yarn global add turtle-cli
   # - yarn global add now
 before_script:
   - greenkeeper-lockfile-update
