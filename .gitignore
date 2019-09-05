@@ -9,9 +9,6 @@ node_modules/
 # Coverage
 coverage
 
-# Docs
-docs/
-
 # Transpiled files
 build/
 dist/
