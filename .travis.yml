@@ -22,6 +22,7 @@ script:
   # - yarn run test
   # - yarn run build
   # - bluebase web:build --static
+  - bluebase expo:build:android
   # - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
