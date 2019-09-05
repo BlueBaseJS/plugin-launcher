@@ -27,9 +27,9 @@ script:
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || yarn global add npm@latest' # skipped when using node 9
-  - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-web
+  - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-expo
   - yarn global add greenkeeper-lockfile@1
-  - yarn global add turtle-cli
+  # - yarn global add turtle-cli
   # - yarn global add now
 before_script:
   - greenkeeper-lockfile-update
