@@ -23,14 +23,18 @@ script:
   # - yarn run build
   # - bluebase web:build --static
   # - bluebase expo:build:android
-  - turtle build:android --keystore-path my-key.keystore -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
+  - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
+  - bluebase expo:build:android
+  # - expo build:android --keystore-path my-key.keystore
+  # - turtle build:android --keystore-path my-key.keystore -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
   # - yarn run size
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || yarn global add npm@latest' # skipped when using node 9
-  # - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-expo
+  - yarn global add @bluebase/cli && bluebase plugins:add @bluebase/cli-expo
   - yarn global add greenkeeper-lockfile@1
-  - yarn global add turtle-cli
+  - yarn global add expo-cli
+  # - yarn global add turtle-cli
   # - yarn global add now
 before_script:
   - greenkeeper-lockfile-update
