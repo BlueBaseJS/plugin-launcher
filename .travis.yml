@@ -23,6 +23,7 @@ script:
   # - yarn run build
   # - bluebase web:build --static
   # - bluebase expo:build:android
+  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
   - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
   - bluebase expo:build:android
   # - expo build:android --keystore-path my-key.keystore
