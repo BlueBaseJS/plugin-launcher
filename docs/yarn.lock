@@ -4010,6 +4010,15 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
+emotion-theming@^10.0.17:
+  version "10.0.17"
+  resolved "https://registry.yarnpkg.com/emotion-theming/-/emotion-theming-10.0.17.tgz#dc1fe33c24dc7377633535dff4885cfa4d6ad48b"
+  integrity sha512-EocpFv+YjZPve20spmnj0Xtnkm/aJec8J8d69XJWtn5Kqqq7jK5S/amMtXSGNm5sjAwoGfJBMZ1p0jMgB3wIPA==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@emotion/weak-memoize" "0.2.3"
+    hoist-non-react-statics "^3.3.0"
+
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
@@ -5282,13 +5291,14 @@ gatsby-theme-apollo-core@^2.0.0:
     react-use "^9.11.0"
     store "^2.0.12"
 
-gatsby-theme-apollo-docs@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-apollo-docs/-/gatsby-theme-apollo-docs-2.0.2.tgz#7ef2fbb08ccc296643516d5606ff589ca5071598"
-  integrity sha512-GTOYyJXYbe6V4M0b/h375Y6ZEWzkIQsFkg1SI0VFn/hjXjrt6+4gOToLCZmxNLV0h2qefOCXlpmHfEbYfFkT7w==
+gatsby-theme-bluebase-docs@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-bluebase-docs/-/gatsby-theme-bluebase-docs-0.0.7.tgz#5a14902000f960628448e643d168f8b4d484da51"
+  integrity sha512-bkRGL51o5JMN3SCpvPWjYNGWLl/2WDEhVR6iZeqPvSlUblpM4ra/bWN8IfN6NSolXheJXianJKa5reK3/wexkA==
   dependencies:
     "@mdx-js/mdx" "^1.1.0"
     "@mdx-js/react" "^1.0.27"
+    emotion-theming "^10.0.17"
     gatsby-plugin-google-analytics "^2.0.17"
     gatsby-plugin-mdx "^1.0.23"
     gatsby-remark-autolink-headers "^2.0.16"

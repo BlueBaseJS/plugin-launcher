@@ -4,23 +4,27 @@ module.exports = {
 	pathPrefix: '/docs',
 	plugins: [
 		{
-			resolve: 'gatsby-theme-apollo-docs',
+			resolve: 'gatsby-theme-bluebase-docs',
 			options: {
 				// ...themeOptions,
-				siteName: 'BlueBase App Launcher',
+				siteName: 'Launcher',
 				// trackingId: 'UA-74643563-13',
-				algoliaApiKey: '768e823959d35bbd51e4b2439be13fb7',
-				algoliaIndexName: 'apollodata',
+				// algoliaApiKey: '768e823959d35bbd51e4b2439be13fb7',
+				// algoliaIndexName: 'apollodata',
 				baseUrl: 'https://www.apollographql.com',
-				twitterHandle: 'apollographql',
+				// twitterHandle: 'apollographql',
 				navConfig: {
+					'/': {
+						text: 'Docs',
+						// matchRegex: '^/api-reference',
+					},
+					'/api-reference': {
+						text: 'API Reference',
+						matchRegex: '^/api-reference',
+					},
 					'https://www.demo.com': {
 						text: 'Demo',
 						matchRegex: '^/demo',
-					},
-					'/api-reference': {
-						text: 'Api Reference',
-						matchRegex: '^/api-reference',
 					},
 					'/storybook': {
 						text: 'Storybook',
@@ -31,7 +35,7 @@ module.exports = {
 				subtitle: '',
 				description: 'A plugin that replaces HomeScreen to show Apps just like any mobile OS',
 				githubRepo: 'BlueBaseJS/plugin-launcher',
-				spectrumPath: 'apollo-platform',
+				// spectrumPath: 'apollo-platform',
 				sidebarCategories: {
 					null: ['index', '../README', 'configs'],
 					Components: [
