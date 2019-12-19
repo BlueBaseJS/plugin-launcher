@@ -14,10 +14,4 @@ export default createPlugin({
 		LauncherDefaultIcon: DefaultIcon,
 		LauncherScreen,
 	},
-
-	defaultConfigs: {
-		'plugin.launcher.wallpaper': {},
-		'plugin.launcher.wallpaper.landscape': {},
-		'plugin.launcher.wallpaper.portrait': {},
-	},
 });
