@@ -45,7 +45,6 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 	render() {
 		const { styles } = this.props;
 		const { plugins } = this.state;
-
 		if (!plugins || plugins.length === 0) {
 			return (
 				<View testID="view" style={{ flex: 1 }}>
@@ -55,7 +54,13 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 		}
 
 		return (
-			<BlueBaseImageBackground source={'launcher'}>
+			<BlueBaseImageBackground
+				style={{
+					flex: 1,
+				}}
+				resizeMode="contain"
+				source={'launcher'}
+			>
 				<ScrollView style={styles!.root}>
 					<AppGrid plugins={plugins} />
 				</ScrollView>
