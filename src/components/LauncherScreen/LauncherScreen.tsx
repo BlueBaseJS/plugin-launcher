@@ -4,8 +4,8 @@ import { ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { AppGrid } from '../AppGrid';
 import React from 'react';
 import { View } from '@bluebase/components';
-import { Wallpaper } from '../Wallpaper';
 
+const BlueBaseImageBackground = getComponent('BlueBaseImageBackground');
 const EmptyState = getComponent('LauncherEmptyState', 'EmptyState');
 
 export interface LauncherScreenStyles {
@@ -43,10 +43,8 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 	}
 
 	render() {
-		const BB: BlueBase = this.context;
 		const { styles } = this.props;
 		const { plugins } = this.state;
-
 		if (!plugins || plugins.length === 0) {
 			return (
 				<View testID="view" style={{ flex: 1 }}>
@@ -56,15 +54,17 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 		}
 
 		return (
-			<Wallpaper
-				portraitProps={BB.Configs.getValue('plugin.launcher.wallpaper.portrait')}
-				landscapeProps={BB.Configs.getValue('plugin.launcher.wallpaper.landscape')}
-				defaultProps={BB.Configs.getValue('plugin.launcher.wallpaper')}
+			<BlueBaseImageBackground
+				style={{
+					flex: 1,
+				}}
+				resizeMode="contain"
+				source={'launcher'}
 			>
 				<ScrollView style={styles!.root}>
 					<AppGrid plugins={plugins} />
 				</ScrollView>
-			</Wallpaper>
+			</BlueBaseImageBackground>
 		);
 	}
 }
