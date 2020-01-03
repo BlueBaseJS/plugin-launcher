@@ -32,7 +32,7 @@ export class LauncherScreen extends React.PureComponent<LauncherScreenProps, Lau
 			flex: 1,
 			paddingHorizontal: theme.spacing.unit * 2,
 		},
-	})
+	});
 
 	async componentWillMount() {
 		const BB: BlueBase = this.context;
