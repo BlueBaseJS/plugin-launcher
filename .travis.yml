@@ -22,6 +22,6 @@ before_script:
 after_script:
   - greenkeeper-lockfile-upload
 after_success:
-  - test $TRAVIS_BRANCH = "master" && yarn run doc
+  - test $TRAVIS_BRANCH = "master" && yarn run doc && yarn run doc:publish
   - npx semantic-release
   - yarn run report-coverage
