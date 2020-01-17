@@ -144,7 +144,7 @@
     "ts-jest": "^24.0.0",
     "tslint": "5.13.0",
     "typedoc": "^0.14.2",
-    "typescript": "3.5.3"
+    "typescript": "3.7.5"
   },
   "peerDependencies": {
     "@bluebase/core": "^5.*",
