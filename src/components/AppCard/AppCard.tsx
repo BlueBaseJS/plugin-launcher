@@ -23,6 +23,10 @@ export const AppCard = ({ plugin, size }: AppCardProps) => {
 
 	const onPress = useCallback(() => navigate(plugin.indexRoute!), [plugin]);
 
+	if (!size) {
+		return null;
+	}
+
 	// Becaues of padding in the parent view
 	const iconSize = size - (theme.spacing.unit * 2);
 
@@ -32,6 +36,7 @@ export const AppCard = ({ plugin, size }: AppCardProps) => {
 				alignItems: 'center',
 				paddingHorizontal: theme.spacing.unit,
 				paddingVertical: theme.spacing.unit * 2,
+				width: size,
 			}}
 			>
 				<View style={{ height: iconSize, width: iconSize }}>
