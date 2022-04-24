@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.0...v2.0.1) (2022-04-24)
+
+### Bug Fixes
+
+*   **AppCard:** Updated styles ([465b4f0](https://github.com/BlueBaseJS/plugin-launcher/commit/465b4f0188c507c908ace3478d1403b3d9c64997))
+
 # [2.0.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.2.0...v2.0.0) (2022-04-24)
 
 ### Features
