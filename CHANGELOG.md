@@ -1,3 +1,9 @@
+## [2.0.2](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.1...v2.0.2) (2022-04-24)
+
+### Bug Fixes
+
+*   Fixed an issue where ui got stuck in rerendering loop ([c72a0b2](https://github.com/BlueBaseJS/plugin-launcher/commit/c72a0b28bf2ac79ff5c85ca573660c691dfb324f))
+
 ## [2.0.1](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.0...v2.0.1) (2022-04-24)
 
 ### Bug Fixes
