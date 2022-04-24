@@ -17,7 +17,7 @@ export const useSize = (): [
 		const { width, height } = event.nativeEvent.layout;
 		setSize({
 			width: Math.floor(width),
-			height: Math.floor(height)
+			height: Math.floor(height),
 		});
 	}, []);
 
