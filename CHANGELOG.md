@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.2.0...v2.0.0) (2022-04-24)
+
+### Features
+
+*   **Expo 44:** Updated to Expo 44 ([9a6fbe1](https://github.com/BlueBaseJS/plugin-launcher/commit/9a6fbe1be7f07b52d8b2b6b8be1a0f2a2f413ea1))
+
+### BREAKING CHANGES
+
+*   **Expo 44:** Updated components to function components, so that we can use modern hooks API
+
 # [1.2.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v1.1.0...v1.2.0) (2020-01-09)
 
 ### Bug Fixes
