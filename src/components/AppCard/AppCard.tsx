@@ -23,12 +23,20 @@ export const AppCard = ({ plugin, size }: AppCardProps) => {
 
 	const onPress = useCallback(() => navigate(plugin.indexRoute!), [plugin]);
 
+	// Becaues of padding in the parent view
+	const iconSize = size - (theme.spacing.unit * 2);
+
 	return (
 		<TouchableItem onPress={onPress}>
-			<View style={{ alignItems: 'center', padding: theme.spacing.unit }}>
-				<View style={{ height: size, width: size }}>
+			<View style={{
+				alignItems: 'center',
+				paddingHorizontal: theme.spacing.unit,
+				paddingVertical: theme.spacing.unit * 2,
+			}}
+			>
+				<View style={{ height: iconSize, width: iconSize }}>
 					{plugin.icon ? (
-						<PluginIcon id={plugin.key} size={size} />
+						<PluginIcon id={plugin.key} size={iconSize} />
 					) : (
 						<DefaultIcon size={size} />
 					)}
