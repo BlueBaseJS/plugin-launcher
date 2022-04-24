@@ -1,13 +1,13 @@
 // jest.mock("Dimensions");
 
 import { BlueBaseApp, createPlugin } from '@bluebase/core';
-
-import { AppGrid } from '../AppGrid';
-import BluebasePluginResponsiveGrid from "@bluebase/plugin-responsive-grid"
-import Plugin from '../../../index';
-import React from 'react';
+import BluebasePluginResponsiveGrid from '@bluebase/plugin-responsive-grid';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { AppGrid } from '../AppGrid';
 
 export const ThingsPlugin: any = createPlugin({
 	key: 'things',
@@ -20,8 +20,6 @@ export const ThingsPlugin: any = createPlugin({
 
 });
 
-
-
 export const SitesIconPlugin: any = createPlugin({
 	key: 'sites',
 	name: 'Sitesplugin',
@@ -32,10 +30,6 @@ export const SitesIconPlugin: any = createPlugin({
 	},
 
 });
-
-
-
-
 
 describe('AppGrid', () => {
 	it('should return plugin with grid ', async () => {

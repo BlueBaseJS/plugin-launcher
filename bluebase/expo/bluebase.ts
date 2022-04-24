@@ -1,7 +1,8 @@
 import { BootOptions } from '@bluebase/core';
 import ReactNavigation from '@bluebase/plugin-react-navigation';
-import commonBootOptions from '../common/bluebase';
 import deepmerge from 'deepmerge';
+
+import commonBootOptions from '../common/bluebase';
 
 // const assetsPath = `../../assets/expo`;
 

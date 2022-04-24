@@ -1,7 +1,12 @@
-import { Body2, NavigationActions, PluginIcon, TouchableItem, View } from '@bluebase/components';
-import { Plugin, getComponent } from '@bluebase/core';
-
-import React from 'react';
+import { Body2, PluginIcon, TouchableItem, View } from '@bluebase/components';
+import {
+	getComponent,
+	Plugin,
+	useIntl,
+	useNavigation,
+	useTheme
+} from '@bluebase/core';
+import React, { useCallback } from 'react';
 
 const DefaultIcon = getComponent('LauncherDefaultIcon');
 
@@ -10,27 +15,30 @@ export interface AppCardProps {
 	size: number;
 }
 
-export const AppCard = ({ plugin, size }: AppCardProps) => (
-	<NavigationActions>
-		{({ navigate }) => {
-			const onPress = () => navigate(plugin.indexRoute!);
+export const AppCard = ({ plugin, size }: AppCardProps) => {
 
-			return (
-				<TouchableItem onPress={onPress}>
-					<View style={{ alignItems: 'center', marginVertical: 8 }}>
-						<View style={{ height: size, width: size }}>
-							{!!plugin.icon ? (
-								<PluginIcon id={plugin.key} size={size} />
-							) : (
-								<DefaultIcon size={size} />
-							)}
-						</View>
-						<Body2 style={{ paddingTop: 8 }} ellipsizeMode="tail" numberOfLines={1}>
-							{plugin.name}
-						</Body2>
-					</View>
-				</TouchableItem>
-			);
-		}}
-	</NavigationActions>
-);
+	const { __ } = useIntl();
+	const { theme } = useTheme();
+	const { navigate } = useNavigation();
+
+	const onPress = useCallback(() => navigate(plugin.indexRoute!), [plugin]);
+
+	return (
+		<TouchableItem onPress={onPress}>
+			<View style={{ alignItems: 'center', padding: theme.spacing.unit }}>
+				<View style={{ height: size, width: size }}>
+					{plugin.icon ? (
+						<PluginIcon id={plugin.key} size={size} />
+					) : (
+						<DefaultIcon size={size} />
+					)}
+				</View>
+				<Body2 style={{ paddingTop: theme.spacing.unit }} ellipsizeMode="tail" numberOfLines={1}>
+					{__(plugin.name)}
+				</Body2>
+			</View>
+		</TouchableItem>
+	);
+};
+
+AppCard.displayName = 'AppCard';

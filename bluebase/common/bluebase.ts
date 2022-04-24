@@ -1,12 +1,12 @@
+import ResponsiveGrid from '@bluebase/plugin-responsive-grid';
+import { MaterialIcons } from '@bluebase/plugin-vector-icons';
+
+import Plugin from '../../src';
 import App1 from '../../src/demo/apps/app1';
 import App2 from '../../src/demo/apps/app2';
 import App3 from '../../src/demo/apps/app3';
 import App4 from '../../src/demo/apps/app4';
 import App5 from '../../src/demo/apps/app5';
-import { MaterialIcons } from '@bluebase/plugin-vector-icons';
-import Plugin from '../../src';
-import ResponsiveGrid from '@bluebase/plugin-responsive-grid';
-
 
 export default {
 	configs: {

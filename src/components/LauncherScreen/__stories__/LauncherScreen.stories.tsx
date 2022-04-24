@@ -1,12 +1,12 @@
 // tslint:disable:no-console
-import { LauncherScreen } from '../LauncherScreen';
+import storiesOf from '@bluebase/storybook-addon';
 import React from 'react';
 
-import storiesOf from '@bluebase/storybook-addon';
+import { LauncherScreen } from '../LauncherScreen';
 
 storiesOf('LauncherScreen', module)
 
-.add('LauncherScreen', () => (
-	<LauncherScreen />
-))
+	.add('LauncherScreen', () => (
+		<LauncherScreen />
+	))
 ;

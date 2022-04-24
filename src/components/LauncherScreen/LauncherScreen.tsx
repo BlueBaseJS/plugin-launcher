@@ -1,9 +1,15 @@
-import { BlueBase, BlueBaseContext, Plugin, Theme, getComponent } from '@bluebase/core';
+import { View } from '@bluebase/components';
+import {
+	getComponent,
+	Plugin,
+	Theme,
+	useBlueBase,
+	useStyles
+} from '@bluebase/core';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleProp, ViewStyle } from 'react-native';
 
 import { AppGrid } from '../AppGrid';
-import React from 'react';
-import { View } from '@bluebase/components';
 
 const BlueBaseImageBackground = getComponent('BlueBaseImageBackground');
 const EmptyState = getComponent('LauncherEmptyState', 'EmptyState');
@@ -20,51 +26,49 @@ export interface LauncherScreenState {
 	plugins: Plugin[];
 }
 
-export class LauncherScreen extends React.PureComponent<LauncherScreenProps, LauncherScreenState> {
-	static contextType = BlueBaseContext;
+const defaultStyles = (theme: Theme) => ({
+	root: {
+		flex: 1,
+		paddingHorizontal: theme.spacing.unit * 2,
+	},
+});
 
-	readonly state: LauncherScreenState = {
-		plugins: [],
-	};
+export const LauncherScreen = (props: LauncherScreenProps) => {
 
-	static defaultStyles = (theme: Theme) => ({
-		root: {
-			flex: 1,
-			paddingHorizontal: theme.spacing.unit * 2,
-		},
-	})
+	const styles = useStyles('LauncherScreen', props, defaultStyles);
 
-	async componentWillMount() {
-		const BB: BlueBase = this.context;
-		const enabledPlugins = await BB.Plugins.getAllEnabled();
-		const plugins = enabledPlugins.filter(p => !!p.indexRoute);
+	const BB = useBlueBase();
+	const [plugins, setPlugins] = useState<Plugin[]>([]);
 
-		this.setState({ plugins });
-	}
-
-	render() {
-		const { styles } = this.props;
-		const { plugins } = this.state;
-		if (!plugins || plugins.length === 0) {
-			return (
-				<View testID="view" style={{ flex: 1 }}>
-					<EmptyState />
-				</View>
-			);
+	useEffect(() => {
+		async function loadPlugins() {
+			const enabledPlugins = await BB.Plugins.getAllEnabled();
+			const plugins = enabledPlugins.filter(p => !!p.indexRoute);
+			setPlugins(plugins);
 		}
 
+		loadPlugins();
+	}, []);
+
+	if (!plugins || plugins.length === 0) {
 		return (
-			<BlueBaseImageBackground
-				style={{
-					flex: 1,
-				}}
-				resizeMode="contain"
-				source={'launcher'}
-			>
-				<ScrollView style={styles!.root}>
-					<AppGrid plugins={plugins} />
-				</ScrollView>
-			</BlueBaseImageBackground>
+			<View testID="view" style={styles.root}>
+				<EmptyState />
+			</View>
 		);
 	}
-}
+
+	return (
+		<BlueBaseImageBackground
+			style={{ flex: 1 }}
+			resizeMode="contain"
+			source="launcher"
+		>
+			<ScrollView style={styles.root}>
+				<AppGrid plugins={plugins} />
+			</ScrollView>
+		</BlueBaseImageBackground>
+	);
+};
+
+LauncherScreen.displayName = 'LauncherScreen';

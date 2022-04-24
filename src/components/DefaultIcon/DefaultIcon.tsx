@@ -1,7 +1,7 @@
 import { DynamicIcon, View } from '@bluebase/components';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Theme, useStyles } from '@bluebase/core';
 import React from 'react';
-import { Theme } from '@bluebase/core';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export interface DefaultIconStyles {
 	iconColor: { color: TextStyle['color'] },
@@ -13,18 +13,7 @@ export interface DefaultIconProps {
 	styles?: Partial<DefaultIconStyles>
 }
 
-export const DefaultIcon = ({ size, styles: _styles }: DefaultIconProps) => {
-
-	const styles = _styles as DefaultIconStyles;
-
-	return (
-		<View style={[styles.root, { height: size, width: size, }]}>
-			<DynamicIcon type="icon" name="build" color={styles.iconColor.color} size={size/2} />
-		</View>
-	);
-};
-
-DefaultIcon.defaultStyles = (theme: Theme) => ({
+const defaultStyles = (theme: Theme): DefaultIconStyles => ({
 	iconColor: {
 		color: theme.palette.primary.main
 	},
@@ -35,3 +24,16 @@ DefaultIcon.defaultStyles = (theme: Theme) => ({
 		justifyContent: 'center',
 	},
 });
+
+export const DefaultIcon = (props: DefaultIconProps) => {
+	const { size } = props;
+	const styles = useStyles('LauncherDefaultIcon', props, defaultStyles);
+
+	return (
+		<View style={[styles.root, { height: size, width: size, }]}>
+			<DynamicIcon type="icon" name="build" color={styles.iconColor.color} size={size/2} />
+		</View>
+	);
+};
+
+DefaultIcon.displayName = 'DefaultIcon';
