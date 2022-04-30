@@ -1,3 +1,9 @@
+# [2.1.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.2...v2.1.0) (2022-04-30)
+
+### Features
+
+*   Replaced TouchableItem with Pressable ([a237cb7](https://github.com/BlueBaseJS/plugin-launcher/commit/a237cb7e46dba0380c30b5a4d3a6418754ed0735))
+
 ## [2.0.2](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.1...v2.0.2) (2022-04-24)
 
 ### Bug Fixes
