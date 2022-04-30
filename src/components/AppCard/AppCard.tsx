@@ -1,4 +1,4 @@
-import { Body2, PluginIcon, TouchableItem, View } from '@bluebase/components';
+import { Body2, PluginIcon, View } from '@bluebase/components';
 import {
 	getComponent,
 	Plugin,
@@ -7,6 +7,7 @@ import {
 	useTheme
 } from '@bluebase/core';
 import React, { useCallback } from 'react';
+import { Pressable } from 'react-native';
 
 const DefaultIcon = getComponent('LauncherDefaultIcon');
 
@@ -31,7 +32,7 @@ export const AppCard = ({ plugin, size }: AppCardProps) => {
 	const iconSize = size - (theme.spacing.unit * 2);
 
 	return (
-		<TouchableItem onPress={onPress}>
+		<Pressable onPress={onPress}>
 			<View style={{
 				alignItems: 'center',
 				paddingHorizontal: theme.spacing.unit,
@@ -50,7 +51,7 @@ export const AppCard = ({ plugin, size }: AppCardProps) => {
 					{__(plugin.name)}
 				</Body2>
 			</View>
-		</TouchableItem>
+		</Pressable>
 	);
 };
 

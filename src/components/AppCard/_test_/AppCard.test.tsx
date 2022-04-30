@@ -24,11 +24,6 @@ export const SitesIconPlugin = createPlugin({
 
 });
 
-jest.doMock('../../Column', () => {
-	const ComponentToMock = () => <div />;
-	return ComponentToMock;
-});
-
 describe('AppCard', () => {
 	it('should return plugin  defaultIcon ', async () => {
 
@@ -38,9 +33,9 @@ describe('AppCard', () => {
 			</BlueBaseApp>
 		);
 
-		await waitForElement(wrapper, 'TouchableItem');
+		await waitForElement(wrapper, 'Pressable');
 		const onPress = (wrapper as any)
-			.find('TouchableItem')
+			.find('Pressable')
 			.last()
 			.prop('onPress');
 
@@ -61,12 +56,12 @@ describe('AppCard', () => {
 			</BlueBaseApp>
 		);
 
-		await waitForElement(wrapper, 'TouchableItem');
+		await waitForElement(wrapper, 'Pressable');
 		expect(
 			(wrapper as any)
 				.find('PluginIcon')
 				.last()
 				.prop('size')
-		).toBe(20);
+		).toBe(4);
 	});
 });
