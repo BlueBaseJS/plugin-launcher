@@ -1,18 +1,9 @@
-import { View } from '@bluebase/components';
-import {
-	getComponent,
-	Plugin,
-	Theme,
-	useBlueBase,
-	useStyles
-} from '@bluebase/core';
+import { BlueBaseImageBackground, EmptyState, View } from '@bluebase/components';
+import { Plugin, Theme, useBlueBase, useStyles } from '@bluebase/core';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleProp, ViewStyle } from 'react-native';
 
 import { AppGrid } from '../AppGrid';
-
-const BlueBaseImageBackground = getComponent('BlueBaseImageBackground');
-const EmptyState = getComponent('LauncherEmptyState', 'EmptyState');
 
 export interface LauncherScreenStyles {
 	root: StyleProp<ViewStyle>;
