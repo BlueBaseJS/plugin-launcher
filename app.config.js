@@ -41,7 +41,7 @@ export default {
 		}
 	},
 	web: {
-		favicon: './assets/favicon.png'
+		favicon: './assets/expo/icon.png'
 	},
 	extra: {
 		storybookNative: process.env.NODE_ENV === 'STORYBOOK_NATIVE'

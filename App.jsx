@@ -1,12 +1,13 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { registerRootComponent } from 'expo';
+// import Constants from 'expo-constants';
 import React from 'react';
 
 import boot from './boot';
 
 let App;
 
-// if (Constants.manifest.extra.storybookNative) {
+// if (Constants.expoConfig.extra.storybookNative) {
 // 	const StorybookApp = require('./storybook').default;
 // 	App = StorybookApp;
 // }
