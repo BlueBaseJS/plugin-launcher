@@ -2,7 +2,7 @@
   "name": "@bluebase/plugin-launcher",
   "description": "A plugin that replaces HomeScreen to show Apps just like any mobile OS",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "./App.jsx",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",

@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.1.0...v2.2.0) (2023-11-28)
+
+### Bug Fixes
+
+*   Fixed component imports ([caf84b7](https://github.com/BlueBaseJS/plugin-launcher/commit/caf84b7b02130300ba923252012bc080ef1b920d))
+*   Fixed issue with layouts ([172fb0a](https://github.com/BlueBaseJS/plugin-launcher/commit/172fb0aeda0d42d996645126d093cb98b25f7632))
+*   Fixed web build ([8c0c64d](https://github.com/BlueBaseJS/plugin-launcher/commit/8c0c64d7eddb6f9f2ccb58ef29c642fe563c2add))
+
+### Features
+
+*   Expo 49 ([62ba8f2](https://github.com/BlueBaseJS/plugin-launcher/commit/62ba8f21fa60b209c00fddf616a7aadafc5bceda))
+
 # [2.1.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.0.2...v2.1.0) (2022-04-30)
 
 ### Features
