@@ -29,7 +29,7 @@ describe('AppCard', () => {
 
 		const wrapper = mount(
 			<BlueBaseApp plugins={[ThingsPlugin, Plugin]}>
-				<AppCard plugin={ThingsPlugin as any} size={20} />
+				<AppCard plugin={ThingsPlugin as any} />
 			</BlueBaseApp>
 		);
 
@@ -52,7 +52,7 @@ describe('AppCard', () => {
 
 		const wrapper = mount(
 			<BlueBaseApp plugins={[SitesIconPlugin, Plugin]}>
-				<AppCard plugin={SitesIconPlugin as any} size={20} />
+				<AppCard plugin={SitesIconPlugin as any} />
 			</BlueBaseApp>
 		);
 

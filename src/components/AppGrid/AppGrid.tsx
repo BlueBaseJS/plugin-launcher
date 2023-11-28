@@ -2,7 +2,6 @@ import { Column, Container, Row } from '@bluebase/components';
 import { Plugin } from '@bluebase/core';
 import React from 'react';
 
-import { useSize } from '../../useSize';
 import { AppCard } from '../AppCard';
 
 export interface AppGridProps {
@@ -10,7 +9,6 @@ export interface AppGridProps {
 }
 
 export const AppGrid = ({ plugins }: AppGridProps) => {
-	const [size, onLayout] = useSize();
 
 	return (
 		<Container>
@@ -18,14 +16,13 @@ export const AppGrid = ({ plugins }: AppGridProps) => {
 				{plugins.map(plugin => (
 					<Column
 						key={plugin.key}
-						onLayout={onLayout}
 						xl={1}
 						lg={1.5}
 						md={2}
 						sm={3}
 						xs={3}
 					>
-						{size ? <AppCard plugin={plugin} size={size.width} /> : null}
+						<AppCard plugin={plugin} />
 					</Column>
 				))}
 			</Row>
