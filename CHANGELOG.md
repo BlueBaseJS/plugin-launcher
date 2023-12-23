@@ -1,3 +1,9 @@
+# [2.3.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.2.0...v2.3.0) (2023-12-23)
+
+### Features
+
+*   New release ([65a6cf6](https://github.com/BlueBaseJS/plugin-launcher/commit/65a6cf63ed3e2a2e2b972d1e2470cacbcd836be7))
+
 # [2.2.0](https://github.com/BlueBaseJS/plugin-launcher/compare/v2.1.0...v2.2.0) (2023-11-28)
 
 ### Bug Fixes
