@@ -16,11 +16,11 @@ export default {
 	version: VERSION,
 	githubUrl: 'https://github.com/BlueBaseJS/plugin-boilerplate',
 	orientation: 'portrait',
-	icon: './assets/icon.png',
+	icon: './assets/expo/icon.png',
 	entryPoint: './node_modules/expo/AppEntry.js',
 	scheme: 'bluebase',
 	splash: {
-		image: './assets/splash.png',
+		image: './assets/expo/splash.png',
 		resizeMode: 'cover',
 		backgroundColor: '#ffffff'
 	},
@@ -36,7 +36,7 @@ export default {
 	android: {
 		versionCode: VERSION_NUMBER,
 		adaptiveIcon: {
-			foregroundImage: './assets/adaptive-icon.png',
+			foregroundImage: './assets/expo/adaptive-icon.png',
 			backgroundColor: '#FFFFFF'
 		}
 	},
